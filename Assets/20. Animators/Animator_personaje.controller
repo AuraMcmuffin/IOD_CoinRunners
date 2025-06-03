@@ -86,7 +86,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PlayerAnimator
+  m_Name: Animator_personaje
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Speed
@@ -148,7 +148,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: a22f4ca7e57ecd446aef69d15b3ed13f, type: 3}
+  m_Motion: {fileID: -2483591982332496685, guid: 745a6c25c92731545983cec13aa9e2cb, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -165,7 +165,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 3188466799324084916}
-    m_Position: {x: 340, y: 60, z: 0}
+    m_Position: {x: 330, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 341965085619432488}
     m_Position: {x: 340, y: 160, z: 0}
@@ -208,7 +208,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: ac450f8d3e2802f4494f387c96f25329, type: 3}
+  m_Motion: {fileID: -1541367832045175987, guid: 745a6c25c92731545983cec13aa9e2cb, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
