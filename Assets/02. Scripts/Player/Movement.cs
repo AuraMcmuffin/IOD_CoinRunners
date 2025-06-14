@@ -6,24 +6,17 @@ public class Movement : MonoBehaviour
     [SerializeField]
     [Tooltip("The physics component, which moves the player")]
     private Rigidbody _rigidBody = default;
-
     [SerializeField]
     [Tooltip("The speed (in m/s) at which the players will move")]
     private float _speed = 1f;
 
-    private float actualSpeed => _statusEffects != null ? _statusEffects.CurrentSpeed : _speed;
-
     private Animator _animator;
-    private PlayerStatusEffects _statusEffects;
 
     Vector2 _direction;
 
     public void Start()
     {
         _animator = GetComponentInChildren<Animator>();
-        _statusEffects = GetComponent<PlayerStatusEffects>();
-        if (_statusEffects == null)
-            Debug.LogWarning("PlayerStatusEffects component missing!");
     }
 
     // When you press WASD or move the left joystick, save the direction you are pointing to
@@ -33,17 +26,13 @@ public class Movement : MonoBehaviour
         {
             if (ctx.started || ctx.performed)
             {
-                Vector2 input = ctx.ReadValue<Vector2>();
-                if (_statusEffects != null && _statusEffects.ControlsInverted)
-                    input = -input;
-                _direction = input;
+                _direction = ctx.ReadValue<Vector2>();
             }
             else if (ctx.canceled)
             {
                 _direction = default;
             }
-        }
-        else
+        } else
         {
             _direction = default;
         }
@@ -71,8 +60,7 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 v3Direction = new Vector3(_direction.x, 0f, _direction.y);
-        float speed = _statusEffects != null ? _statusEffects.CurrentSpeed : _speed;
-        _rigidBody.MovePosition(transform.position + v3Direction * speed * Time.fixedDeltaTime);
+        _rigidBody.MovePosition(transform.position + v3Direction * _speed * Time.fixedDeltaTime);
         var lookat = transform.position + v3Direction;
         transform.LookAt(lookat);
     }
@@ -84,8 +72,7 @@ public class Movement : MonoBehaviour
 
         if (_animator != null)
         {
-            Debug.Log(_direction.magnitude);
-            _animator.SetFloat("Speed", _direction.magnitude * actualSpeed);
+            _animator.SetFloat("Speed", _direction.magnitude);
             _animator.SetFloat("SpeedY", _rigidBody.velocity.y);
             _animator.SetBool("Grounded", grounded);
         }
