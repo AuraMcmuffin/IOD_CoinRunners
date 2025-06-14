@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effectMaterials:
   - effectType: 2
-    material: {fileID: 2100000, guid: d60782f0490f8aa42b292ddca1f22c19, type: 2}
-  - effectType: 1
     material: {fileID: 2100000, guid: f411f4649a946554f865b860d4c955ec, type: 2}
+  - effectType: 1
+    material: {fileID: 2100000, guid: d60782f0490f8aa42b292ddca1f22c19, type: 2}
+  - effectType: 0
+    material: {fileID: 2100000, guid: d60782f0490f8aa42b292ddca1f22c19, type: 2}

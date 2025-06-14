@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 12219544574907360}
   - component: {fileID: 7112280750646822479}
+  - component: {fileID: -3435382766456873325}
   m_Layer: 0
   m_Name: Tormenta de arena
   m_TagString: Untagged
@@ -55,6 +56,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3435382766456873325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4513594038293285750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9cc0d1f6adce544082ee5ea134c6755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  stunDuration: 3
+  direction: {x: 0, y: 0, z: 1}
 --- !u!1 &5709327249046272264
 GameObject:
   m_ObjectHideFlags: 0
