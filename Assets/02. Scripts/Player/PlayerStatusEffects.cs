@@ -40,7 +40,7 @@ public class PlayerStatusEffects : MonoBehaviour
             yield break;
         isSpeedUpActive = true;
         float prev = CurrentSpeed;
-        CurrentSpeed = baseSpeed * 2f;
+        CurrentSpeed = baseSpeed * 3f;
         PlayerAnimator.SetBool("IsRunning", true);
         yield return new WaitForSeconds(duration);
         CurrentSpeed = prev;
@@ -54,7 +54,7 @@ public class PlayerStatusEffects : MonoBehaviour
             yield break;
         isSlowDownActive = true;
         float prev = CurrentSpeed;
-        CurrentSpeed = baseSpeed * 0.5f;
+        CurrentSpeed = baseSpeed * 0.1f;
         yield return new WaitForSeconds(duration);
         CurrentSpeed = prev;
         isSlowDownActive = false;
