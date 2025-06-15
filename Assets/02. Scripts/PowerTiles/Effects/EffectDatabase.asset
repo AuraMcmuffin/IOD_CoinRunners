@@ -18,4 +18,6 @@ MonoBehaviour:
   - effectType: 1
     material: {fileID: 2100000, guid: d60782f0490f8aa42b292ddca1f22c19, type: 2}
   - effectType: 0
-    material: {fileID: 2100000, guid: d60782f0490f8aa42b292ddca1f22c19, type: 2}
+    material: {fileID: 2100000, guid: ca765bc4e62dc5b48bde4bd2051272dd, type: 2}
+  - effectType: 3
+    material: {fileID: 2100000, guid: 40da7b2723d2e6c4ca858fa43c783bbb, type: 2}

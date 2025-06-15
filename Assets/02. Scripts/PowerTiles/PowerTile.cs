@@ -5,6 +5,7 @@ public enum PowerEffectType
     SpeedUp,
     SlowDown,
     InvertControls,
+    Freeze,
 }
 
 [System.Serializable]
@@ -26,6 +27,8 @@ public static class PowerEffectFactory
                 return new SlowDownEffect();
             case PowerEffectType.InvertControls:
                 return new InvertControlsEffect();
+            case PowerEffectType.Freeze:
+                return new FreezeEffect();
             default:
                 return null;
         }
