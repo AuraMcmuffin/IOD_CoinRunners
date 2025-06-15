@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class PlayerStatusEffects : MonoBehaviour
 {
+
+    public Animator PlayerAnimator;
+
     [SerializeField]
     private float baseSpeed = 5f;
     public float CurrentSpeed { get; private set; }
@@ -38,9 +41,11 @@ public class PlayerStatusEffects : MonoBehaviour
         isSpeedUpActive = true;
         float prev = CurrentSpeed;
         CurrentSpeed = baseSpeed * 2f;
+        PlayerAnimator.SetBool("IsRunning", true);
         yield return new WaitForSeconds(duration);
         CurrentSpeed = prev;
         isSpeedUpActive = false;
+        PlayerAnimator.SetBool("IsRunning", false);
     }
 
     public IEnumerator SlowDown(float duration)
