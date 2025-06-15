@@ -13,6 +13,8 @@ public class Whirlwind : MonoBehaviour
 
     private IPowerEffect _freezeEffect;
 
+    public Animator PlayerAnimator;
+
     private void Awake()
     {
         _freezeEffect = new FreezeEffect();
@@ -29,6 +31,7 @@ public class Whirlwind : MonoBehaviour
         if (status != null && _freezeEffect != null)
         {
             _freezeEffect.Apply(status, stunDuration);
+            PlayerAnimator.SetTrigger("Confusion");
         }
     }
 }
