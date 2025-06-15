@@ -22,6 +22,7 @@ public class PlayerSpawn : MonoBehaviour
 
     private void OnPlayerJoined(PlayerInput playerInput)
     {
+        playerInput.transform.position = _spawnPositions[playerInput.playerIndex].position;
         Instantiate(_characterPrefabs[playerInput.playerIndex], playerInput.transform);
         playerInput.gameObject.GetComponent<PlayerStartingPosition>().SetStartingPosition(_spawnPositions[playerInput.playerIndex].position);
     }
