@@ -80,20 +80,10 @@ public class CountSystem : MonoBehaviour
             _virtualCamera.Priority = 50;
             _winnerUIObject.SetActive(true);
             current.GetComponentInChildren<Animator>().SetTrigger("Victory");
-
-            // Guardar prefab o nombre del ganador
-            GameData.WinnerPrefabName = current.name; // Asegúrate de que el nombre sea útil para instanciarlo después
-
-            // Iniciar cambio de escena tras una breve espera (corutina)
-            StartCoroutine(LoadWinnerSceneWithDelay());
         }
         _replayUI.SetActive(true);
     }
     
-    private IEnumerator LoadWinnerSceneWithDelay()
-    {
-        yield return new WaitForSeconds(3f); // Espera para que se vea la animación
-        SceneManager.LoadScene("WinnerScene"); // Cambia esto al nombre real de tu escena
-    }
+
 
 }
