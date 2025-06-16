@@ -70,7 +70,7 @@ public class CoinObtainer : MonoBehaviour
             // coinId assumed to be 1-based; adjust to 0-based index
             int prefabIndex = Mathf.Clamp(coinId - 1, 0, coinMarkerPrefabs.Length - 1);
             var markerObj = Instantiate(coinMarkerPrefabs[prefabIndex], scoreMarker);
-            markerObj.transform.localPosition = Vector3.down * i * 1.2f; // Adjust spacing as needed
+            markerObj.transform.localPosition = Vector3.left * i * 2.5f; // Adjust spacing as needed
 
             // Optionally highlight the first marker
             var markerScript = markerObj.GetComponent<CoinMarker>();
