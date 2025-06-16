@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using UnityEngine.SceneManagement;
+using System.Collections; // Necesario para IEnumerator sin tipo
 
 public class CountSystem : MonoBehaviour
 {
@@ -51,7 +53,7 @@ public class CountSystem : MonoBehaviour
         int max = -1;
         bool tie = true;
         GameObject current = null;
-        for(int i = 0; i < _playerList.Count; ++i)
+        for (int i = 0; i < _playerList.Count; ++i)
         {
             CoinObtainer co = _playerList[i].GetComponent<CoinObtainer>();
             if (co.Coins > max)
@@ -59,7 +61,8 @@ public class CountSystem : MonoBehaviour
                 tie = false;
                 max = co.Coins;
                 current = _playerList[i];
-            } else if (co.Coins == max)
+            }
+            else if (co.Coins == max)
             {
                 tie = true;
                 current = null;
@@ -69,14 +72,28 @@ public class CountSystem : MonoBehaviour
         if (tie)
         {
             _tieUIObject.SetActive(true);
-        } else
+        }
+        else
         {
             _virtualCamera.Follow = current.transform;
             _virtualCamera.LookAt = current.transform;
             _virtualCamera.Priority = 50;
             _winnerUIObject.SetActive(true);
             current.GetComponentInChildren<Animator>().SetTrigger("Victory");
+
+            // Guardar prefab o nombre del ganador
+            GameData.WinnerPrefabName = current.name; // Asegúrate de que el nombre sea útil para instanciarlo después
+
+            // Iniciar cambio de escena tras una breve espera (corutina)
+            StartCoroutine(LoadWinnerSceneWithDelay());
         }
         _replayUI.SetActive(true);
     }
+    
+    private IEnumerator LoadWinnerSceneWithDelay()
+    {
+        yield return new WaitForSeconds(3f); // Espera para que se vea la animación
+        SceneManager.LoadScene("WinnerScene"); // Cambia esto al nombre real de tu escena
+    }
+
 }
