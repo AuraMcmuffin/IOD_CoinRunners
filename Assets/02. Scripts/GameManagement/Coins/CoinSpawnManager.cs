@@ -15,7 +15,7 @@ public class CoinSpawnManager : MonoBehaviour
     private int _parallelSpawns = 1;
     [SerializeField]
     [Tooltip("How much time will pass between coin spawns?")]
-    private float _timeBetweenSpawns = 10f;
+    private float _timeBetweenSpawns = 20f;
 
     private List<Transform> _coinSpawnPositions;
 

@@ -50,6 +50,7 @@ public class PlayerStatusEffects : MonoBehaviour
 
     public IEnumerator SlowDown(float duration)
     {
+        Debug.Log("SlowDownFunction");
         if (isSlowDownActive)
             yield break;
         isSlowDownActive = true;

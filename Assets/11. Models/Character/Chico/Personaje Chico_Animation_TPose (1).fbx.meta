@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2a2a3cac850cdad41bc8814e9ea36177
+guid: 44924db3ae60a074ba48321ebf85a8ef
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -19,26 +19,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'metarig|Confuse' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'spine' has translation animation that will
-      be discarded.\n\t'spine' is inbetween humanoid transforms and has rotation
-      animation that will be discarded.\n\t'spine.004' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'metarig|Grab' has
-      import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'spine' has translation
-      animation that will be discarded.\n\t'thumb.01.R' has translation animation
-      that will be discarded.\n\nClip 'metarig|Idle.C' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'spine' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'metarig|Run' has
-      import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'spine' has translation
-      animation that will be discarded.\n\t'spine' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\nClip 'metarig|Walk' has
-      import animation warnings that might lower retargeting quality:\nNote: Activate
-      translation DOF on avatar to improve retargeting quality.\n\t'spine' has translation
-      animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
