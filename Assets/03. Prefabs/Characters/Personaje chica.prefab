@@ -1022,6 +1022,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerAnimator: {fileID: 1492567044786461089}
   baseSpeed: 5
+  FreezeIcon: {fileID: 0}
+  ConfusionIcon: {fileID: 0}
+  SlowIcon: {fileID: 0}
+  SpeedIcon: {fileID: 0}
+  InvertIcon: {fileID: 0}
 --- !u!136 &2926999518895403888
 CapsuleCollider:
   m_ObjectHideFlags: 0

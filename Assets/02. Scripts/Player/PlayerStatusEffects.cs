@@ -15,11 +15,27 @@ public class PlayerStatusEffects : MonoBehaviour
     private bool isSpeedUpActive = false;
     private bool isSlowDownActive = false;
     private bool isInvertControlsActive = false;
+    private bool isConfusedActive = false;
+
 
     private void Awake()
     {
         CurrentSpeed = baseSpeed;
         ControlsInverted = false;
+    }
+
+    public IEnumerator Confusion(float duration)
+    {
+        if (isConfusedActive)
+            yield break;
+        isFreezeActive = true;
+        float prev = CurrentSpeed;
+        IconManager.Instance.ActivarIconoConfusion();
+        CurrentSpeed = 0;
+        yield return new WaitForSeconds(duration);
+        CurrentSpeed = prev;
+        isConfusedActive = false;
+        IconManager.Instance.DesactivarIconoConfusion();
     }
 
     public IEnumerator Freeze(float duration)
@@ -28,10 +44,12 @@ public class PlayerStatusEffects : MonoBehaviour
             yield break;
         isFreezeActive = true;
         float prev = CurrentSpeed;
+        IconManager.Instance.ActivarIconoFreeze();
         CurrentSpeed = 0;
         yield return new WaitForSeconds(duration);
         CurrentSpeed = prev;
         isFreezeActive = false;
+        IconManager.Instance.DesactivarIconoFreeze();
     }
 
     public IEnumerator SpeedUp(float duration)
@@ -40,12 +58,14 @@ public class PlayerStatusEffects : MonoBehaviour
             yield break;
         isSpeedUpActive = true;
         float prev = CurrentSpeed;
+        IconManager.Instance.ActivarIconoSpeed();
         CurrentSpeed = baseSpeed * 3f;
         PlayerAnimator.SetBool("IsRunning", true);
         yield return new WaitForSeconds(duration);
         CurrentSpeed = prev;
         isSpeedUpActive = false;
         PlayerAnimator.SetBool("IsRunning", false);
+        IconManager.Instance.DesactivarIconoSpeed();
     }
 
     public IEnumerator SlowDown(float duration)
@@ -54,11 +74,13 @@ public class PlayerStatusEffects : MonoBehaviour
         if (isSlowDownActive)
             yield break;
         isSlowDownActive = true;
+        IconManager.Instance.ActivarIconoSlow();
         float prev = CurrentSpeed;
         CurrentSpeed = baseSpeed * 0.1f;
         yield return new WaitForSeconds(duration);
         CurrentSpeed = prev;
         isSlowDownActive = false;
+        IconManager.Instance.DesactivarIconoSlow();
     }
 
     public IEnumerator InvertControls(float duration)
@@ -66,9 +88,11 @@ public class PlayerStatusEffects : MonoBehaviour
         if (isInvertControlsActive)
             yield break;
         isInvertControlsActive = true;
+        IconManager.Instance.ActivarIconoInvert();
         ControlsInverted = true;
         yield return new WaitForSeconds(duration);
         ControlsInverted = false;
         isInvertControlsActive = false;
+        IconManager.Instance.DesactivarIconoInvert();
     }
 }

@@ -11,11 +11,13 @@ public class Whirlwind : MonoBehaviour
     [SerializeField]
     private Vector3 direction = Vector3.forward;
 
-    private IPowerEffect _freezeEffect;
+    private IPowerEffect ConfusionEffect;
+
+    public Animator PlayerAnimator;
 
     private void Awake()
     {
-        _freezeEffect = new FreezeEffect();
+        ConfusionEffect = new ConfusionEffect();
     }
 
     private void Update()
@@ -27,16 +29,11 @@ public class Whirlwind : MonoBehaviour
     {
         Debug.Log("Pa asegurar que hay rose");
         var status = other.GetComponent<PlayerStatusEffects>();
-        if (status != null && _freezeEffect != null)
+        PlayerAnimator = other.GetComponentInChildren<Animator>();
+        PlayerAnimator.SetTrigger("Confusion");
+        if (status != null && ConfusionEffect != null)
         {
-            _freezeEffect.Apply(status, stunDuration);
-        
-            Animator playerAnimator = other.GetComponent<Animator>();
-            if (playerAnimator != null)
-            {
-                playerAnimator.SetTrigger("Confusion");
-            }
+            ConfusionEffect.Apply(status, stunDuration);    
         }
-    
     }
 }

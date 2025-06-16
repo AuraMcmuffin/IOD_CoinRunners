@@ -84,7 +84,6 @@ public class Movement : MonoBehaviour
 
         if (_animator != null)
         {
-            Debug.Log(_direction.magnitude);
             _animator.SetFloat("Speed", _direction.magnitude * actualSpeed);
             _animator.SetFloat("SpeedY", _rigidBody.velocity.y);
             _animator.SetBool("Grounded", grounded);
