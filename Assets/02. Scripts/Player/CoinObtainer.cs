@@ -9,6 +9,10 @@ public class CoinObtainer : MonoBehaviour
     private AudioSource _coinAudio;
     private int differentCoins = 4;
 
+    [SerializeField]
+    [Tooltip("The audio source with the coin error sound")]
+    private AudioSource _coinErrorAudio;
+
     [Tooltip("How many coins must be delivered in order?")]
     public int maxCoinsToGet = 5;
 
@@ -123,6 +127,8 @@ public class CoinObtainer : MonoBehaviour
             {
                 // Incorrect coin delivered, reset progress
                 Debug.Log("Incorrect coin delivered! Progress reset.");
+                if (_coinErrorAudio != null)
+                _coinErrorAudio.Play();
                 ResetProgress();
             }
         }
