@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class Whirlwind : MonoBehaviour
 {
     [SerializeField]
@@ -13,8 +13,6 @@ public class Whirlwind : MonoBehaviour
 
     private IPowerEffect _freezeEffect;
 
-    public Animator PlayerAnimator;
-
     private void Awake()
     {
         _freezeEffect = new FreezeEffect();
@@ -27,11 +25,18 @@ public class Whirlwind : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Pa asegurar que hay rose");
         var status = other.GetComponent<PlayerStatusEffects>();
         if (status != null && _freezeEffect != null)
         {
             _freezeEffect.Apply(status, stunDuration);
-            PlayerAnimator.SetTrigger("Confusion");
+        
+            Animator playerAnimator = other.GetComponent<Animator>();
+            if (playerAnimator != null)
+            {
+                playerAnimator.SetTrigger("Confusion");
+            }
         }
+    
     }
 }

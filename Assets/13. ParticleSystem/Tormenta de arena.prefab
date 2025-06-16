@@ -50,11 +50,11 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.7, y: 1, z: 0.7}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-3435382766456873325
 MonoBehaviour:
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cc0d1f6adce544082ee5ea134c6755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 1.04
   stunDuration: 3
   direction: {x: 0, y: 0, z: 1}
 --- !u!1 &5709327249046272264
@@ -98,7 +98,7 @@ Transform:
   m_GameObject: {fileID: 5709327249046272264}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0.029, y: -0.469, z: -0.01}
+  m_LocalPosition: {x: 0.32, y: -0.469, z: -0.07}
   m_LocalScale: {x: 5.727962, y: 5.727962, z: 5.727962}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -121,7 +121,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -4928,7 +4928,7 @@ Transform:
   m_GameObject: {fileID: 7654891493951840700}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.45, y: -0.451, z: 0.012}
+  m_LocalPosition: {x: 0.35000002, y: -0.451, z: -0.048000008}
   m_LocalScale: {x: 8.715095, y: 8.715095, z: 8.715095}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4951,7 +4951,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 0
+  playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
