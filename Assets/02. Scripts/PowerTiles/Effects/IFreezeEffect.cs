@@ -1,7 +1,18 @@
+using UnityEngine;
+
 public class FreezeEffect : IPowerEffect
 {
-    public void Apply(PlayerStatusEffects target, float duration)
+    public void Apply(PlayerStatusEffects triggeringPlayer, float duration)
     {
-        target.StartCoroutine(target.Freeze(duration));
+        PlayerStatusEffects[] allPlayers = GameObject.FindObjectsOfType<PlayerStatusEffects>();
+
+        foreach (var player in allPlayers)
+        {
+            if (player != triggeringPlayer)
+            {
+                player.StartCoroutine(player.Freeze(duration));
+                break; // solo congela a un rival
+            }
+        }
     }
 }

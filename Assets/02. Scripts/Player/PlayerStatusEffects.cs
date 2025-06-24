@@ -20,6 +20,7 @@ public class PlayerStatusEffects : MonoBehaviour
 
     private void Awake()
     {
+        PlayerAnimator = GetComponentInChildren<Animator>();
         CurrentSpeed = baseSpeed;
         ControlsInverted = false;
     }
@@ -59,7 +60,7 @@ public class PlayerStatusEffects : MonoBehaviour
         isSpeedUpActive = true;
         float prev = CurrentSpeed;
         IconManager.Instance.ActivarIconoSpeed();
-        CurrentSpeed = baseSpeed * 3f;
+        CurrentSpeed = baseSpeed * 2f;
         PlayerAnimator.SetBool("IsRunning", true);
         yield return new WaitForSeconds(duration);
         CurrentSpeed = prev;
@@ -76,7 +77,7 @@ public class PlayerStatusEffects : MonoBehaviour
         isSlowDownActive = true;
         IconManager.Instance.ActivarIconoSlow();
         float prev = CurrentSpeed;
-        CurrentSpeed = baseSpeed * 0.1f;
+        CurrentSpeed = baseSpeed * 0.3f;
         yield return new WaitForSeconds(duration);
         CurrentSpeed = prev;
         isSlowDownActive = false;

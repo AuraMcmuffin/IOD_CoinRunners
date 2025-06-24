@@ -15,9 +15,6 @@ public class PowerTileMarker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player"))
-            return;
-
         Debug.Log("Colisión con el jugador");
 
         var statusEffects = other.GetComponent<PlayerStatusEffects>();
