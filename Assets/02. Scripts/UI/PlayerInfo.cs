@@ -3,21 +3,34 @@ using TMPro;
 
 public class PlayerInfo : MonoBehaviour
 {
+    public IconManager iconManager;  // asigna este en el inspector
+
     [SerializeField]
-    [Tooltip("The text object that shows the score of the player")]
     private TextMeshProUGUI _scoreText;
 
-    // To activate the UI, activate the UI game object and subscribe to the coin obtain
     public void Activate(GameObject playerObject)
     {
         gameObject.SetActive(true);
         CoinObtainer coinObtainer = playerObject.GetComponent<CoinObtainer>();
         coinObtainer.OnCoinObtained += OnCoinObtained;
+
+        // 🔽 Esta parte es clave:
+        PlayerStatusEffects statusEffects = playerObject.GetComponent<PlayerStatusEffects>();
+        IconManager iconManager = GetComponent<IconManager>();
+
+        if (statusEffects != null && iconManager != null)
+        {
+            statusEffects.SetIconManager(iconManager);
+        }
+        else
+        {
+            Debug.LogWarning("No se pudo asignar el IconManager al jugador.");
+        }
     }
 
-    // When you obtain a coin, show how many coins you have now
     private void OnCoinObtained(int coins)
     {
         _scoreText.text = coins.ToString();
     }
 }
+

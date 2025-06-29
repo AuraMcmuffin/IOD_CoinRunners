@@ -9,12 +9,6 @@ public class IconManager : MonoBehaviour
     public GameObject iconoConfusion;
     public GameObject iconoFreeze;
 
-    public static IconManager Instance;
-
-    void Awake()
-    {
-        Instance = this;
-    }
 
     public void ActivarIconoInvert()
     {
